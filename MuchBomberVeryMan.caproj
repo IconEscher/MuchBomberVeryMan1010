@@ -83,6 +83,7 @@
                 <instance-variable name="Speed" sid="8447580560080402" type="number" />
                 <instance-variable name="MoveTime" sid="6793015207198512" type="number" />
                 <instance-variable name="Timer" sid="6484561482504581" type="number" />
+                <instance-variable name="Player" sid="8825448224294187" type="number" />
             </instance-variables>
             <behaviors>
                 <behavior-type name="8Direction" sid="3955252229513944">
