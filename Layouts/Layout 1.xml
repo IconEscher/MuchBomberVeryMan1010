@@ -2714,6 +2714,12 @@
                         <initial-frame>0</initial-frame>
                         <collisions>Enabled</collisions>
                     </properties>
+                    <instance-variables>
+                        <Direction>-1</Direction>
+                        <Speed>128</Speed>
+                        <MoveTime>0.25</MoveTime>
+                        <Timer>0</Timer>
+                    </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="8Direction">
                             <properties>
@@ -2722,7 +2728,7 @@
                                 <deceleration>500</deceleration>
                                 <directions>4 directions</directions>
                                 <set-angle>No</set-angle>
-                                <default-controls>Yes</default-controls>
+                                <default-controls>No</default-controls>
                                 <initial-state>Enabled</initial-state>
                             </properties>
                         </behavior-instance>
