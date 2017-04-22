@@ -8,6 +8,37 @@
         <variable constant="1" name="DIR_LEFT" sid="9463409741428059" static="0" type="number">180</variable>
         <variable constant="1" name="DIR_UP" sid="3506769950617478" static="0" type="number">270</variable>
         <variable constant="1" name="NEUTRAL" sid="116883633493476" static="0" type="number">-1</variable>
+        <event-block sid="590234157512415">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="562130225331776" type="System" />
+            </conditions>
+            <actions>
+                <action behavior="Pathfinding" id="5" name="Add obstacle" sid="406672078744648" type="Creep">
+                    <param id="0" name="Obstacle">NotSoSolidBlock</param>
+                </action>
+                <action behavior="Pathfinding" id="5" name="Add obstacle" sid="937001863908524" type="Creep">
+                    <param id="0" name="Obstacle">SolidBlock</param>
+                </action>
+                <action behavior="Pathfinding" id="5" name="Add obstacle" sid="484179278595015" type="Creep">
+                    <param id="0" name="Obstacle">Bomb</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="586314831298267">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="416128575846736" type="System">
+                            <param id="0" name="Object">Creep</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="521301135309671" type="Function">
+                            <param id="0" name="Name">&quot;CreepPickDestination&quot;</param>
+                            <param id="1" name="Parameter {n}">Creep.UID</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
         <event-block sid="195960431494209">
             <conditions>
                 <condition id="-1" name="Every tick" sid="145772375399444" type="System" />
@@ -172,6 +203,10 @@
                                 <action id="-10" name="Set value" sid="489704583322049" type="Bomb">
                                     <param id="0" name="Instance variable">BomberUID</param>
                                     <param id="1" name="Value">BomberPlayer.UID</param>
+                                </action>
+                                <action id="0" name="Call function" sid="556645204884097" type="Function">
+                                    <param id="0" name="Name">&quot;CreepsRegenMap&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
                                 </action>
                             </actions>
                         </event-block>
@@ -561,6 +596,16 @@
                         <action id="-9" name="Destroy" sid="596278050023086" type="BomberPlayer" />
                     </actions>
                 </event-block>
+                <event-block sid="990042411416465">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="859315557354794" type="Explosion">
+                            <param id="0" name="Object">Creep</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="884256832507123" type="Creep" />
+                    </actions>
+                </event-block>
             </sub-events>
         </event-group>
         <event-group description="" sid="366136458116897" title="PowerUps">
@@ -667,7 +712,7 @@
                                 </action>
                                 <action id="-11" name="Add to" sid="492269820954961" type="BomberPlayer">
                                     <param id="0" name="Instance variable">Speed</param>
-                                    <param id="1" name="Value">256</param>
+                                    <param id="1" name="Value">64</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -681,5 +726,192 @@
                 </event-block>
             </sub-events>
         </event-group>
+        <event-group description="" sid="238474989840098" title="Creeps">
+            <sub-events>
+                <event-block sid="774606291321446">
+                    <conditions>
+                        <condition id="0" name="On function" sid="875688872413873" type="Function">
+                            <param id="0" name="Name">&quot;CreepPickDestination&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="525337727614314">
+                            <conditions>
+                                <condition id="-16" name="Pick random instance" sid="730419191064569" type="System">
+                                    <param id="0" name="Object">Destination</param>
+                                </condition>
+                                <condition id="-14" name="Pick by unique ID" sid="612991521950682" type="Creep">
+                                    <param id="0" name="Unique ID">Function.Param(0)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Pathfinding" id="4" name="Regenerate obstacle map" sid="566917141505499" type="Creep" />
+                                <action behavior="Pathfinding" id="0" name="Find path" sid="128253724811337" type="Creep">
+                                    <param id="0" name="X">Destination.X</param>
+                                    <param id="1" name="Y">Destination.Y</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="937359682259823" type="Creep">
+                                    <param id="0" name="Instance variable">CurrentDestX</param>
+                                    <param id="1" name="Value">Destination.X</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="310022574002914" type="Creep">
+                                    <param id="0" name="Instance variable">CurrentDestY</param>
+                                    <param id="1" name="Value">Destination.Y</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="242621177059209">
+                    <conditions>
+                        <condition id="0" name="On function" sid="990059936581823" type="Function">
+                            <param id="0" name="Name">&quot;CreepsRegenMap&quot;</param>
+                        </condition>
+                        <condition id="-11" name="For Each" sid="254767210874773" type="System">
+                            <param id="0" name="Object">Creep</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Pathfinding" id="4" name="Regenerate obstacle map" sid="187352843492367" type="Creep" />
+                        <action behavior="Pathfinding" id="0" name="Find path" sid="831655135503360" type="Creep">
+                            <param id="0" name="X">Self.CurrentDestX</param>
+                            <param id="1" name="Y">Self.CurrentDestY</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="173745754520483">
+                    <conditions>
+                        <condition behavior="Pathfinding" id="0" name="On path found" sid="963353589865302" type="Creep" />
+                    </conditions>
+                    <actions>
+                        <action behavior="Pathfinding" id="1" name="Move along path" sid="877283769277772" type="Creep" />
+                    </actions>
+                </event-block>
+                <event-block sid="104014324195048">
+                    <conditions>
+                        <condition behavior="Pathfinding" id="1" name="On failed to find path" sid="727710465619042" type="Creep" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="129414312337982" type="Function">
+                            <param id="0" name="Name">&quot;CreepPickDestination&quot;</param>
+                            <param id="1" name="Parameter {n}">Creep.UID</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="537306907598970">
+                    <conditions>
+                        <condition behavior="Pathfinding" id="5" name="On arrived" sid="927196053076776" type="Creep" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="451612904619298" type="Function">
+                            <param id="0" name="Name">&quot;CreepPickDestination&quot;</param>
+                            <param id="1" name="Parameter {n}">Creep.UID</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="901248131898439">
+                    <conditions>
+                        <condition behavior="Pathfinding" id="4" name="Is moving along path" sid="881781288818415" type="Creep" />
+                        <condition id="-11" name="For Each" sid="925064454550337" type="System">
+                            <param id="0" name="Object">Creep</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="506594592333652">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="393107098444346" type="System">
+                                    <param id="0" name="First value">Creep.Pathfinding.MovingAngle</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Second value">DIR_UP - 25</param>
+                                </condition>
+                                <condition id="-8" name="Compare two values" sid="995135425434848" type="System">
+                                    <param id="0" name="First value">Creep.Pathfinding.MovingAngle</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Second value">DIR_UP + 25</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="651624126353331" type="Creep">
+                                    <param id="0" name="Animation">&quot;Up&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="119173240067623">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="502746022719650" type="System">
+                                    <param id="0" name="First value">Creep.Pathfinding.MovingAngle</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Second value">DIR_DOWN - 25</param>
+                                </condition>
+                                <condition id="-8" name="Compare two values" sid="804348588777850" type="System">
+                                    <param id="0" name="First value">Creep.Pathfinding.MovingAngle</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Second value">DIR_DOWN + 25</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="625451908250081" type="Creep">
+                                    <param id="0" name="Animation">&quot;Down&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="704622026527245">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="168769384540455" type="System">
+                                    <param id="0" name="First value">Creep.Pathfinding.MovingAngle</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Second value">DIR_LEFT - 25</param>
+                                </condition>
+                                <condition id="-8" name="Compare two values" sid="270753544087545" type="System">
+                                    <param id="0" name="First value">Creep.Pathfinding.MovingAngle</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Second value">DIR_LEFT + 25</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="676902678375150" type="Creep">
+                                    <param id="0" name="Animation">&quot;Left&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="171425035202558">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="543837558429535" type="System">
+                                    <param id="0" name="First value">Creep.Pathfinding.MovingAngle</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Second value">DIR_RIGHT - 25</param>
+                                </condition>
+                                <condition id="-8" name="Compare two values" sid="771799667004702" type="System">
+                                    <param id="0" name="First value">Creep.Pathfinding.MovingAngle</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Second value">DIR_RIGHT + 25</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="847408064774629" type="Creep">
+                                    <param id="0" name="Animation">&quot;Right&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-block sid="289834614488880">
+            <conditions>
+                <condition id="1" name="Is overlapping another object" sid="867862897914788" type="BomberPlayer">
+                    <param id="0" name="Object">Creep</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="312051908536667" type="BomberPlayer" />
+            </actions>
+        </event-block>
     </events>
 </c2eventsheet>
