@@ -719,22 +719,6 @@
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type name="Sprite2" sid="726984490002997">
-            <plugin id="Sprite" />
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="323337676608885" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Escher\Desktop\SecondoProgettoConstruct\0_CommonAssets\Sprites\Menu\title_titletext.png">
-                        <collision-poly>
-                            <point x="0.203125" y="0.203125" />
-                            <point x="0.821181" y="0.178819" />
-                            <point x="0.451389" y="0.451389" />
-                            <point x="0.5" y="0.446181" />
-                            <point x="0.552083" y="0.447917" />
-                        </collision-poly>
-                    </frame>
-                </animation>
-            </animation-folder>
-        </object-type>
         <object-type name="Title" sid="637336681710476">
             <plugin id="Sprite" />
             <behaviors>
@@ -778,22 +762,6 @@
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type name="ControlsInformation" sid="259743632503199">
-            <plugin id="Sprite" />
-            <animation-folder>
-                <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="233867603540545" speed="5">
-                    <frame duration="1" hotspotX="0.503311" hotspotY="0.521739" original-source="C:\Users\Escher\Desktop\SecondoProgettoConstruct\0_CommonAssets\Sprites\Menu\Control_PlayerOne.png">
-                        <collision-poly>
-                            <point x="0.00662252" y="0.0434783" />
-                            <point x="0.993378" y="0.0434783" />
-                            <point x="0.993378" y="0.956522" />
-                            <point x="0.00662252" y="0.956522" />
-                        </collision-poly>
-                    </frame>
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.521739" original-source="C:\Users\Escher\Desktop\SecondoProgettoConstruct\0_CommonAssets\Sprites\Menu\Control_PlayerTwo.png" />
-                </animation>
-            </animation-folder>
-        </object-type>
         <object-type name="Mouse" sid="756962382197353">
             <plugin id="Mouse" />
         </object-type>
@@ -826,6 +794,47 @@
         </object-type>
         <object-type global="1" name="Array" sid="412176006294125">
             <plugin id="Arr" />
+        </object-type>
+        <object-type name="Sprite" sid="755182314175442">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="997025396948245" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="ControlsInformation1" sid="661589328994633">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="174857901724042" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Escher\Desktop\PROVA.png">
+                        <collision-poly>
+                            <point x="0.055" y="0.275" />
+                            <point x="0.945" y="0.275" />
+                            <point x="0.995" y="0.5" />
+                            <point x="0.935" y="0.675" />
+                            <point x="0.07" y="0.65" />
+                            <point x="0.01" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Sprite2" sid="405944242617815">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="312534117863662" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Escher\Desktop\PROVA2.png">
+                        <collision-poly>
+                            <point x="0.055" y="0.275" />
+                            <point x="0.945" y="0.275" />
+                            <point x="0.945" y="0.725" />
+                            <point x="0.08" y="0.6" />
+                            <point x="0.04" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
         </object-type>
     </object-folder>
     <families />
