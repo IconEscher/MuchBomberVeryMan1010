@@ -475,6 +475,7 @@
                 <instance-variable name="Direction" sid="127720969767105" type="number" />
                 <instance-variable name="CurrentDestY" sid="189090940460312" type="number" />
                 <instance-variable name="CurrentDestX" sid="777635956634804" type="number" />
+                <instance-variable name="Health" sid="866136360688185" type="number" />
             </instance-variables>
             <behaviors>
                 <behavior-type name="8Direction" sid="420490550035664">
@@ -851,17 +852,11 @@
     <families />
     <layout-folder>
         <layout>Menu.xml</layout>
-        <layout>Break.xml</layout>
         <layout>Game1.xml</layout>
-        <layout>Game2.xml</layout>
-        <layout>Instructions.xml</layout>
     </layout-folder>
     <event-folder>
         <event-sheet>esGame1.xml</event-sheet>
         <event-sheet>esMenu.xml</event-sheet>
-        <event-sheet>esGame2.xml</event-sheet>
-        <event-sheet>esBreak.xml</event-sheet>
-        <event-sheet>esInstructions.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="Keyboard" uid="95" />
