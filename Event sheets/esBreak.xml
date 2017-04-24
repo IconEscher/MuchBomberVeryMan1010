@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>esBreak</name>
+    <events>
+        <event-block sid="125701173030670">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="488691638770583" type="System" />
+            </conditions>
+            <actions>
+                <action id="5" name="Set web font" sid="601363240469027" type="txtDescription">
+                    <param id="0" name="Family name">&quot;Anton&quot;</param>
+                    <param id="1" name="CSS URL">&quot;http://fonts.googleapis.com/css?family=Anton&quot;</param>
+                </action>
+                <action id="2" name="Set font face" sid="557306125892359" type="txtDescription">
+                    <param id="0" name="Font face">&quot;Anton&quot;</param>
+                    <param id="1" name="Style">0</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

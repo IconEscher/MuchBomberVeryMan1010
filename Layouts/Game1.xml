@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <c2layout>
-    <name>Game</name>
+    <name>Game1</name>
     <sid>4572185916493546</sid>
-    <event-sheet>esGame</event-sheet>
+    <event-sheet>esGame1</event-sheet>
     <size>
         <width>640</width>
         <height>640</height>
@@ -2538,7 +2538,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="EndLevel" uid="100">
+                <instance type="EndLevel1" uid="100">
                     <properties>
                         <initial-visibility>Invisible</initial-visibility>
                         <initial-animation>Default</initial-animation>

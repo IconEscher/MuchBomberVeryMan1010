@@ -768,7 +768,7 @@
         <object-type name="txtDescription" sid="108220807450554">
             <plugin id="Text" />
         </object-type>
-        <object-type name="EndLevel" sid="281869865298524">
+        <object-type name="EndLevel1" sid="281869865298524">
             <plugin id="Sprite" />
             <behaviors>
                 <behavior-type name="Rotate" sid="537921828887321">
@@ -836,15 +836,32 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="Timer" sid="215541730431174">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="BlackBackground" sid="316897044709392">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="943107280824910" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families />
     <layout-folder>
         <layout>Menu.xml</layout>
-        <layout>Game.xml</layout>
+        <layout>Break.xml</layout>
+        <layout>Game1.xml</layout>
+        <layout>Game2.xml</layout>
+        <layout>Instructions.xml</layout>
     </layout-folder>
     <event-folder>
-        <event-sheet>esGame.xml</event-sheet>
+        <event-sheet>esGame1.xml</event-sheet>
         <event-sheet>esMenu.xml</event-sheet>
+        <event-sheet>esGame2.xml</event-sheet>
+        <event-sheet>esBreak.xml</event-sheet>
+        <event-sheet>esInstructions.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="Keyboard" uid="95" />
