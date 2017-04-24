@@ -10,20 +10,27 @@
     <unique-id>1luxqur6n9jgk</unique-id>
     <saved-with-version>24400</saved-with-version>
     <used-plugins>
+        <plugin author="Scirra" id="Arr" version="1">Array</plugin>
         <plugin author="Scirra" id="Function" version="1">Function</plugin>
         <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
+        <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="Text" version="1">Text</plugin>
         <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
     </used-plugins>
     <used-behaviors>
         <behavior author="Scirra" id="EightDir" version="1">8 Direction</behavior>
         <behavior author="Scirra" id="Fade" version="1">Fade</behavior>
         <behavior author="Scirra" id="Pathfinding" version="1">Pathfinding</behavior>
+        <behavior author="Scirra" id="Rotate" version="1">Rotate</behavior>
+        <behavior author="Scirra" id="Sin" version="1">Sine</behavior>
         <behavior author="Scirra" id="bound" version="1">Bound to layout</behavior>
         <behavior author="Scirra" id="destroy" version="1">Destroy outside layout</behavior>
         <behavior author="Scirra" id="solid" version="1">Solid</behavior>
     </used-behaviors>
-    <used-effects />
+    <used-effects>
+        <effect author="Scirra" id="replacecolor">Replace color</effect>
+    </used-effects>
     <configurations>
         <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
     </configurations>
@@ -33,6 +40,7 @@
     </window-size>
     <pixel-rounding>0</pixel-rounding>
     <preview-effects>1</preview-effects>
+    <first-layout>Menu</first-layout>
     <use-loader-layout>0</use-loader-layout>
     <configuration-settings>
         <prop name="Clear background">Yes</prop>
@@ -100,6 +108,11 @@
                     <behavior id="bound" />
                 </behavior-type>
             </behaviors>
+            <effects>
+                <effect-type name="ReplaceColor">
+                    <effect id="replacecolor" />
+                </effect-type>
+            </effects>
             <animation-folder>
                 <animation framecount="8" loop="1" name="Right" pingpong="0" repeatcount="1" repeatto="0" sid="9896851048007869" speed="16">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.75" original-source="C:\Users\dbga_40\Desktop\SecondoProgettoConstruct\0_CommonAssets\Sprites\Bomberman\Side\Bman_F_f00.png">
@@ -698,17 +711,136 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="Background" sid="407053953161376">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="500924672263379" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Escher\Desktop\SecondoProgettoConstruct\0_CommonAssets\Sprites\Menu\title_background.jpg" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Sprite2" sid="726984490002997">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="323337676608885" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Escher\Desktop\SecondoProgettoConstruct\0_CommonAssets\Sprites\Menu\title_titletext.png">
+                        <collision-poly>
+                            <point x="0.203125" y="0.203125" />
+                            <point x="0.821181" y="0.178819" />
+                            <point x="0.451389" y="0.451389" />
+                            <point x="0.5" y="0.446181" />
+                            <point x="0.552083" y="0.447917" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Title" sid="637336681710476">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Sine" sid="978837605703592">
+                    <behavior id="Sin" />
+                </behavior-type>
+                <behavior-type name="Sine2" sid="274879702655703">
+                    <behavior id="Sin" />
+                </behavior-type>
+                <behavior-type name="Sine3" sid="248441350021162">
+                    <behavior id="Sin" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="787891101546063" speed="5">
+                    <frame duration="1" hotspotX="0.467866" hotspotY="1.15432" original-source="C:\Users\Escher\Desktop\SecondoProgettoConstruct\0_CommonAssets\Sprites\Menu\title_titletext.png">
+                        <collision-poly>
+                            <point x="0.0282776" y="0.0987654" />
+                            <point x="0.943445" y="0.0123457" />
+                            <point x="0.395887" y="0.981481" />
+                            <point x="0.467866" y="0.962963" />
+                            <point x="0.544987" y="0.969136" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="PlayerButton" sid="953491378288576">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="ID" sid="879873585063076" type="number" />
+            </instance-variables>
+            <animation-folder>
+                <animation framecount="2" loop="0" name="PlayerOne" pingpong="0" repeatcount="1" repeatto="0" sid="373454125474747" speed="0">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.518519" original-source="C:\Users\Escher\Desktop\SecondoProgettoConstruct\0_CommonAssets\Sprites\Menu\One_Player_Normal.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.518519" original-source="C:\Users\Escher\Desktop\SecondoProgettoConstruct\0_CommonAssets\Sprites\Menu\One_Player_Hover.png" />
+                </animation>
+                <animation framecount="2" loop="0" name="PlayerTwo" pingpong="0" repeatcount="1" repeatto="0" sid="825487571539169" speed="0">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.518519" original-source="C:\Users\Escher\Desktop\SecondoProgettoConstruct\0_CommonAssets\Sprites\Menu\Two_Players_Normal.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.518519" original-source="C:\Users\Escher\Desktop\SecondoProgettoConstruct\0_CommonAssets\Sprites\Menu\Two_Players_Hover.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="ControlsInformation" sid="259743632503199">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="233867603540545" speed="5">
+                    <frame duration="1" hotspotX="0.503311" hotspotY="0.521739" original-source="C:\Users\Escher\Desktop\SecondoProgettoConstruct\0_CommonAssets\Sprites\Menu\Control_PlayerOne.png">
+                        <collision-poly>
+                            <point x="0.00662252" y="0.0434783" />
+                            <point x="0.993378" y="0.0434783" />
+                            <point x="0.993378" y="0.956522" />
+                            <point x="0.00662252" y="0.956522" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.521739" original-source="C:\Users\Escher\Desktop\SecondoProgettoConstruct\0_CommonAssets\Sprites\Menu\Control_PlayerTwo.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Mouse" sid="756962382197353">
+            <plugin id="Mouse" />
+        </object-type>
+        <object-type name="txtDescription" sid="108220807450554">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="EndLevel" sid="281869865298524">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Rotate" sid="537921828887321">
+                    <behavior id="Rotate" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="345626351126929" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Escher\Desktop\SecondoProgettoConstruct\0_CommonAssets\Sprites\Blocks\Portal.png">
+                        <collision-poly>
+                            <point x="0.1875" y="0.1875" />
+                            <point x="0.5" y="0.0625" />
+                            <point x="0.8125" y="0.1875" />
+                            <point x="0.9375" y="0.5" />
+                            <point x="0.8125" y="0.8125" />
+                            <point x="0.5" y="0.9375" />
+                            <point x="0.1875" y="0.8125" />
+                            <point x="0.0625" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type global="1" name="Array" sid="412176006294125">
+            <plugin id="Arr" />
+        </object-type>
     </object-folder>
     <families />
     <layout-folder>
+        <layout>Menu.xml</layout>
         <layout>Game.xml</layout>
     </layout-folder>
     <event-folder>
-        <event-sheet>Game Event.xml</event-sheet>
+        <event-sheet>esGame.xml</event-sheet>
+        <event-sheet>esMenu.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="Keyboard" uid="95" />
         <global-instance type="Function" uid="39" />
+        <global-instance type="Mouse" uid="98" />
     </global-instances>
     <sounds-folder />
     <music-folder />
