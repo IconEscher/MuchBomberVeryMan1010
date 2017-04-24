@@ -9,6 +9,7 @@
         <variable constant="1" name="DIR_LEFT" sid="9463409741428059" static="0" type="number">180</variable>
         <variable constant="1" name="DIR_UP" sid="3506769950617478" static="0" type="number">270</variable>
         <variable constant="1" name="NEUTRAL" sid="116883633493476" static="0" type="number">-1</variable>
+        <variable constant="0" name="Timer" sid="114061291594476" static="0" type="number">120</variable>
         <event-block sid="590234157512415">
             <conditions>
                 <condition id="-2" name="On start of layout" sid="562130225331776" type="System" />
@@ -92,6 +93,45 @@
                 <action id="-11" name="Add to" sid="495337516896637" type="Bomb">
                     <param id="0" name="Instance variable">Counter</param>
                     <param id="1" name="Value">dt</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="506688900040162">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="428107320409559" type="System">
+                    <param id="0" name="Interval (seconds)">1.0</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="780826028116325" type="System">
+                    <param id="0" name="Variable">Timer</param>
+                    <param id="1" name="Comparison">1</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-11" name="Subtract from" sid="279406611939372" type="System">
+                    <param id="0" name="Variable">Timer</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="0" name="Set text" sid="394827972746354" type="Timer">
+                    <param id="0" name="Text">&quot;Remaining: &quot; &amp; Timer</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="406540872806709">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="177850487535188" type="System">
+                    <param id="0" name="Variable">Timer</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="550656013007610" type="System">
+                    <param id="0" name="Variable">Winner</param>
+                    <param id="1" name="Value">2</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="646604684972243" type="System">
+                    <param id="0" name="Layout">Menu</param>
                 </action>
             </actions>
         </event-block>
@@ -840,9 +880,29 @@
                         <condition id="1" name="Is overlapping another object" sid="859315557354794" type="Explosion">
                             <param id="0" name="Object">Creep</param>
                         </condition>
+                        <condition id="-7" name="Compare instance variable" sid="137272554825818" type="Creep">
+                            <param id="0" name="Instance variable">Health</param>
+                            <param id="1" name="Comparison">1</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
                     </conditions>
                     <actions>
-                        <action id="-9" name="Destroy" sid="884256832507123" type="Creep" />
+                        <action id="-12" name="Subtract from" sid="884256832507123" type="Creep">
+                            <param id="0" name="Instance variable">Health</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="303365686367021">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="350886067119802" type="Creep">
+                            <param id="0" name="Instance variable">Health</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="485121720265017" type="Creep" />
                     </actions>
                 </event-block>
             </sub-events>
@@ -900,6 +960,11 @@
                                 <condition id="3" name="Compare frame" sid="538309898536167" type="PowerUP">
                                     <param id="0" name="Comparison">0</param>
                                     <param id="1" name="Number">0</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="260681252642032" type="BomberPlayer">
+                                    <param id="0" name="Instance variable">Bombs</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Value">5</param>
                                 </condition>
                             </conditions>
                             <actions>
@@ -1175,12 +1240,12 @@
                 </condition>
             </conditions>
             <actions>
+                <action id="-2" name="Go to layout" sid="266624134421461" type="System">
+                    <param id="0" name="Layout">Menu</param>
+                </action>
                 <action id="-9" name="Set value" sid="709108061403920" type="System">
                     <param id="0" name="Variable">Winner</param>
                     <param id="1" name="Value">2</param>
-                </action>
-                <action id="-2" name="Go to layout" sid="266624134421461" type="System">
-                    <param id="0" name="Layout">Menu</param>
                 </action>
             </actions>
         </event-block>
@@ -1195,6 +1260,9 @@
                 <action id="-9" name="Set value" sid="702276328643693" type="System">
                     <param id="0" name="Variable">Winner</param>
                     <param id="1" name="Value">BomberPlayer.Player</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="236581667463974" type="System">
+                    <param id="0" name="Layout">Menu</param>
                 </action>
             </actions>
         </event-block>
