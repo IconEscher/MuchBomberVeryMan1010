@@ -56,7 +56,7 @@
                     </conditions>
                     <actions>
                         <action id="0" name="Set text" sid="263347725674078" type="txtDescription">
-                            <param id="0" name="Text">&quot;Player &quot; &amp; Array.At(Winner) &amp; &quot; wins !!!&quot;</param>
+                            <param id="0" name="Text">&quot;Player &quot; &amp; Array.At(Winner) &amp; &quot; wins !!! Such Bomber, 10/10&quot;</param>
                         </action>
                     </actions>
                 </event-block>
